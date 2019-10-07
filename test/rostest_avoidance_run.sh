@@ -6,10 +6,10 @@ PX4_SRC_DIR=${DIR}/..
 source /opt/ros/${ROS_DISTRO:-kinetic}/setup.bash
 mkdir -p ${PX4_SRC_DIR}/catkin_ws/src
 cd ${PX4_SRC_DIR}/catkin_ws/
-git clone -b 0.3.0 --single-branch --depth 1 https://github.com/PX4/avoidance.git src/avoidance
+git clone -b fix_px4_config --single-branch --depth 1 https://github.com/PX4/avoidance.git src/avoidance
 
 catkin init
-catkin build local_planner safe_landing_planner --cmake-args -DCMAKE_BUILD_TYPE=Release
+catkin build avoidance local_planner safe_landing_planner --cmake-args -DCMAKE_BUILD_TYPE=Release
 
 source ${PX4_SRC_DIR}/catkin_ws/devel/setup.bash
 source /usr/share/gazebo/setup.sh
